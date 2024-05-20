@@ -21,15 +21,15 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser):
     first_name = models.CharField(max_length=155)
     last_name = models.CharField(max_length=155)
-    birth_date = models.DateField()
+    birth_date = models.DateField(null=True, blank=True)
     email = models.EmailField(unique=True)
     organization = models.CharField(max_length=255)
     login = models.CharField(max_length=200)
     password = models.CharField(max_length=70)
     degree = models.CharField(max_length=100)
     information = models.CharField(max_length=300)
-    avatar = models.ImageField(upload_to='avatars')
-    
+    avatar = models.ImageField(upload_to='files/avatars')
+    is_reviewer = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
