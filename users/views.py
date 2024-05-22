@@ -8,12 +8,13 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.core.mail import send_mail
 from random import randint
-
+from rest_framework import parsers
 
 class RegisterView(CreateAPIView):
     queryset = CustomUser.objects.all() 
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
+    parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.FileUploadParser)
 
     def perform_create(self, serializer):
         serializer.save()

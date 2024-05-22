@@ -9,6 +9,7 @@ from rest_framework.decorators import api_view, permission_classes
 from editions.serializers import EditionSerializer
 from editions.models import EditionModel
 from rest_framework.pagination import PageNumberPagination
+from rest_framework import parsers
 
 
 @api_view(['GET'])
@@ -34,6 +35,7 @@ class PapersViewSet(ModelViewSet):
     permission_classes = [IsAuthorOrReadOnly]
     pagination_class = PageNumberPagination
     filter_backends = [filters.DjangoFilterBackend]
+    parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.FileUploadParser)
     filterset_fields = '__all__'
 
     
