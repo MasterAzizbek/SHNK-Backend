@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import EditionCategories, EditionModel
 
-# Register your models here.
+
+admin.site.register(EditionCategories)
+admin.site.register(EditionModel)

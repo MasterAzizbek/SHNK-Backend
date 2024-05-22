@@ -11,7 +11,7 @@ from random import randint
 
 
 class RegisterView(CreateAPIView):
-    queryset = CustomUser.objects.all()
+    queryset = CustomUser.objects.all() 
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 

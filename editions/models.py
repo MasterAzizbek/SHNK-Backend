@@ -17,7 +17,6 @@ class EditionModel(models.Model):
     edition_categories = models.ManyToManyField(EditionCategories)
     edition_file_uz = models.FileField(upload_to='files/edition_files')
     edition_file_en = models.FileField(upload_to='files/edition_files')
-    is_published = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.edition_name_uz
